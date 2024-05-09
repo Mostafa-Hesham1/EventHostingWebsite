@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
 
 
 const upload = multer({ storage });
-
+app.options('*', cors()) // include before other routes
 app.use(cors({
   origin: ['http://localhost:3000',"https://events-app-fe.vercel.app"], 
   methods: ['GET', 'POST', 'PUT', 'DELETE',"OPTIONS"],
