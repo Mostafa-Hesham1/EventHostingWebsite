@@ -36,8 +36,7 @@ const theme = createTheme({
 });
 function App() {
   const location = useLocation();
-  const hideNavAndFooter = location.pathname.includes('/signup') || 
-                           location.pathname.includes('/signin') || 
+  const hideNavAndFooter = 
                            location.pathname.includes('/dashboard') || 
                            location.pathname.startsWith('/checkout/')||location.pathname.startsWith('/Manage-event')||location.pathname.startsWith('/checkout/')||location.pathname.startsWith('/Manage-user');
 
