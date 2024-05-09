@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TextField, Button, Typography, Container } from '@mui/material';
 
-import {SERVER_URL} from "../../contants"
+import {SERVER_URL} from "../../constants"
 
 
 import { useParams } from 'react-router-dom';

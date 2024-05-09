@@ -11,7 +11,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import ReviewOrder from './ReviewOrder';
-import {SERVER_URL} from "../../contants"
+import {SERVER_URL} from "../../constants"
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 export default function Checkout() {

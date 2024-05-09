@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SERVER_URL } from '../contants';
+import { SERVER_URL } from '../constants';
 export const getAllevents = async () => {
     try {
         const res = await axios.get(`${SERVER_URL}/event`);

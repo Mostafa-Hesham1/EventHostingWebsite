@@ -70,10 +70,10 @@ app.post('/upload', upload.single('file'), async (req, res) => {
   
   app.use(express.static(path.join(__dirname, 'events-app/build')));
 
-  // All remaining requests return the React app, so it can handle routing.
-  app.get('*', function(request, response) {
-      response.sendFile(path.join(__dirname, 'events-app/build', 'index.html'));
-  });
+  // // All remaining requests return the React app, so it can handle routing.
+  // app.get('*', function(request, response) {
+  //     response.sendFile(path.join(__dirname, 'events-app/build', 'index.html'));
+  // });
 mongoose.connect(process.env.MONGODB_URI )
 .then(() => app.listen(process.env.PORT || 5000, () => console.log("Connected to Database And server is running on port " + (process.env.PORT || 5000))))
 .catch((e) => console.log(e));

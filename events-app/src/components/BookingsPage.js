@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, CardContent, CardMedia, Typography, Container, Grid, Button, Snackbar, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import {SERVER_URL} from "../contants"
+import {SERVER_URL} from "../constants"
 const CustomCard = styled(Card)(({ theme }) => ({
     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
     '&:hover': {

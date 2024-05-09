@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Card, CardMedia, CardContent, Typography, List, ListItem, ListItemText, Grid, Button } from '@mui/material';
-import {SERVER_URL} from "../../contants"
+import {SERVER_URL} from "../../constants"
 function ReviewOrder({ formData, eventDetails }) {
   if (!eventDetails) {
     return <Typography variant="h6" color="error">Event details not available.</Typography>;

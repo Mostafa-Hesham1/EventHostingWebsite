@@ -16,7 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import axios from 'axios';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {SERVER_URL} from "../../contants"
+import {SERVER_URL} from "../../constants"
 const drawerWidth = 240;
 
 const theme = createTheme({

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Typography, Card, CardMedia, CardContent, Container, Button, Snackbar, useTheme } from '@mui/material';
 import axios from 'axios';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { SERVER_URL } from '../../contants';
+import { SERVER_URL } from '../../constants';
 const EventDetail = () => {
   const { id } = useParams();
   const [event, setEvent] = useState(null);

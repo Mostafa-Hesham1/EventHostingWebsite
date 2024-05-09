@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { TextField, Button, Checkbox, FormControlLabel, FormGroup, Typography, Container } from '@mui/material';
-import {SERVER_URL} from "../../contants"
+import {SERVER_URL} from "../../constants"
 function AddEventForm() {
     const [formData, setFormData] = useState({
         title: '',

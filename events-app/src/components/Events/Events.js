@@ -22,7 +22,7 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { cssTransition, toast, ToastContainer } from 'react-toastify';
-import { SERVER_URL } from '../../contants';
+import { SERVER_URL } from '../../constants';
 import 'react-toastify/dist/ReactToastify.css';
 
 const darkTheme = createTheme({
