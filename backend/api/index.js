@@ -31,7 +31,7 @@ const upload = multer({ storage });
 
 app.use(cors({
   origin: ['http://localhost:3000',"https://events-app-fe.vercel.app"], 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE',"OPTIONS"],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
