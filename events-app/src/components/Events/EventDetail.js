@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Typography, Card, CardMedia, CardContent, Container, Button, Snackbar, useTheme } from '@mui/material';
 import axios from 'axios';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import { SERVER_URL } from '../../contants';
 const EventDetail = () => {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
@@ -16,7 +16,7 @@ const EventDetail = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const eventResponse = await axios.get(`http://localhost:5000/event/${id}`);
+        const eventResponse = await axios.get(`${SERVER_URL}/event/${id}`);
         if (eventResponse.data.event) {
           setEvent(eventResponse.data.event);
         } else {
@@ -26,7 +26,7 @@ const EventDetail = () => {
         const userId = localStorage.getItem('userId');
         const token = localStorage.getItem('token');
         if (userId && token) {
-          const bookingsResponse = await axios.get(`http://localhost:5000/booking/user/${userId}`, {
+          const bookingsResponse = await axios.get(`${SERVER_URL}/booking/user/${userId}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           const bookedEventIds = bookingsResponse.data.map(booking => booking.event._id);
@@ -74,7 +74,7 @@ const EventDetail = () => {
         <CardMedia
           component="img"
           height="400"
-          image={event.posterUrl ? `http://localhost:5000/uploads/${event.posterUrl}` : 'https://via.placeholder.com/400'}
+          image={event.posterUrl ? `${SERVER_URL}/uploads/${event.posterUrl}` : 'https://via.placeholder.com/400'}
           alt={event.title}
           sx={{ borderRadius: '4px 4px 0 0' }} 
         />

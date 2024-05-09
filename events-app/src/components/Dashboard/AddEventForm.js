@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { TextField, Button, Checkbox, FormControlLabel, FormGroup, Typography, Container } from '@mui/material';
-
+import {SERVER_URL} from "../../contants"
 function AddEventForm() {
     const [formData, setFormData] = useState({
         title: '',
@@ -54,7 +54,7 @@ function AddEventForm() {
         };
     
         try {
-            const response = await axios.post('http://localhost:5000/event', data, config);
+            const response = await axios.post(`${SERVER_URL}/event`, data, config);
             console.log('Event added:', response.data);
             alert("Event added successfully!");
         } catch (error) {

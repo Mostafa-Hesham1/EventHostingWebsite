@@ -11,7 +11,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import ReviewOrder from './ReviewOrder';
-
+import {SERVER_URL} from "../../contants"
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 export default function Checkout() {
@@ -31,7 +31,7 @@ export default function Checkout() {
   useEffect(() => {
     async function fetchEventDetails() {
       try {
-        const response = await axios.get(`http://localhost:5000/event/${id}`);
+        const response = await axios.get(`${SERVER_URL}/event/${id}`);
         if (response.data.event) {
           setEventDetails(response.data.event);
         } else {
@@ -102,7 +102,7 @@ export default function Checkout() {
     };
 
     try {
-        const response = await axios.post('http://localhost:5000/booking/', requestBody, {
+        const response = await axios.post(`${SERVER_URL}/booking/`, requestBody, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'

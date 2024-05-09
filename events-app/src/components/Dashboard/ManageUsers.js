@@ -13,6 +13,8 @@ import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import axios from 'axios';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { signUpUser } from '../../api-helpers/api-helpers';
+import { SERVER_URL } from '../../contants';
+
 const drawerWidth = 240;
 const theme = createTheme({
   palette: {
@@ -45,7 +47,7 @@ const ManageUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/users');
+        const response = await axios.get(`${SERVER_URL}/users`);
         setUsers(response.data.users);
       } catch (error) {
         console.error('Failed to fetch users', error);
@@ -72,7 +74,7 @@ const ManageUsers = () => {
 
   const handleDeleteUser = async (userId) => {
     try {
-      await axios.delete(`http://localhost:5000/users/${userId}`);
+      await axios.delete(`${SERVER_URL}/users/${userId}`);
       setUsers(users.filter(user => user._id !== userId));
     } catch (error) {
       console.error('Failed to delete user', error);
@@ -86,7 +88,7 @@ const ManageUsers = () => {
 };  
   const fetchUserBookings = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/booking/user/${userId}`);
+      const response = await axios.get(`${SERVER_URL}/booking/user/${userId}`);
       setBookings(response.data.bookings);
       setSelectedUser(userId);
     } catch (error) {

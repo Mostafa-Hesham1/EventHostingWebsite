@@ -22,6 +22,7 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { cssTransition, toast, ToastContainer } from 'react-toastify';
+import { SERVER_URL } from '../../contants';
 import 'react-toastify/dist/ReactToastify.css';
 
 const darkTheme = createTheme({
@@ -146,7 +147,7 @@ const Events = () => {
                   <CardMedia
                     component="img"
                     height="200"
-                    image={event.posterUrl ? `http://localhost:5000/uploads/${event.posterUrl}` : placeholderImageUrl}
+                    image={event.posterUrl ? `${SERVER_URL}/uploads/${event.posterUrl}` : placeholderImageUrl}
                     alt={event.title}
                     onError={(e) => { e.target.src = placeholderImageUrl; }}
                     sx={{ objectFit: 'cover' }}
@@ -203,7 +204,7 @@ Get Your Ticket Now!                </Button>
               <CardMedia
                 component="img"
                 height="140" 
-                image={event.posterUrl ? `http://localhost:5000/uploads/${event.posterUrl}` : placeholderImageUrl}
+                image={event.posterUrl ? `${SERVER_URL}/uploads/${event.posterUrl}` : placeholderImageUrl}
                 alt={event.title}
                 onError={(e) => { e.target.src = placeholderImageUrl; }}
                 sx={{ objectFit: 'cover', borderRadius: '16px 16px 0 0' }} 

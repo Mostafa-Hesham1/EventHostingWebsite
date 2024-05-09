@@ -16,7 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import axios from 'axios';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import {SERVER_URL} from "../../contants"
 const drawerWidth = 240;
 
 const theme = createTheme({
@@ -45,7 +45,7 @@ const ManageEvents = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/event?admin=${adminId}`);
+                const response = await axios.get(`${SERVER_URL}/event?admin=${adminId}`);
                 setEvents(response.data.events);
             } catch (error) {
                 console.error('Failed to fetch events', error);
@@ -66,7 +66,7 @@ const ManageEvents = () => {
 
     const handleDeleteEvent = async (eventId) => {
         try {
-            const response = await axios.delete(`http://localhost:5000/event/${eventId}`);
+            const response = await axios.delete(`${SERVER_URL}/event/${eventId}`);
             if (response.status === 200) {
                 setEvents(prevEvents => prevEvents.filter(event => event._id !== eventId));
                 //console.log('Event deleted successfully:', response.data);

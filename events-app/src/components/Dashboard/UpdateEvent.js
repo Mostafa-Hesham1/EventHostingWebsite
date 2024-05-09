@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TextField, Button, Typography, Container } from '@mui/material';
 
-
+import {SERVER_URL} from "../../contants"
 
 
 import { useParams } from 'react-router-dom';
@@ -27,7 +27,7 @@ const UpdateEventForm = () => {    const { eventId } = useParams();
         console.log("Event ID:", eventId); 
         const fetchEvent = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:5000/event/${eventId}`);
+                const { data } = await axios.get(`${SERVER_URL}/event/${eventId}`);
                 setFormData(data.event);
             } catch (error) {
                 console.error('Error fetching event data:', error);
@@ -70,7 +70,7 @@ const UpdateEventForm = () => {    const { eventId } = useParams();
         });
 
         try {
-            const response = await axios.put(`http://localhost:5000/event/${eventId}`, formDataToSend);
+            const response = await axios.put(`${SERVER_URL}/event/${eventId}`, formDataToSend);
             console.log('Event updated:', response.data);
             alert("Event updated successfully!");
         } catch (error) {

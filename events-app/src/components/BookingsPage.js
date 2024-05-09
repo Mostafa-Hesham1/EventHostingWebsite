@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, CardContent, CardMedia, Typography, Container, Grid, Button, Snackbar, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
-
+import {SERVER_URL} from "../contants"
 const CustomCard = styled(Card)(({ theme }) => ({
     transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
     '&:hover': {
@@ -30,14 +30,14 @@ function UserBookings() {
                     throw new Error('User ID is missing');
                 }
     
-                const bookingsResponse = await axios.get(`http://localhost:5000/booking/user/${userId}`, {
+                const bookingsResponse = await axios.get(`${SERVER_URL}/booking/user/${userId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
     
                 if (bookingsResponse.status === 200 && bookingsResponse.data.bookings.length > 0) {
                     const events = await Promise.all(bookingsResponse.data.bookings.map(async (booking) => {
                         const eventId = booking.event._id || booking.event;
-                        const eventResponse = await axios.get(`http://localhost:5000/event/${eventId}`, {
+                        const eventResponse = await axios.get(`${SERVER_URL}/event/${eventId}`, {
                             headers: { Authorization: `Bearer ${token}` }
                         });
                         const eventDate = new Date(eventResponse.data.event.eventDate);
@@ -75,7 +75,7 @@ function UserBookings() {
         }
         const token = localStorage.getItem('token');
         try {
-            const response = await axios.put(`http://localhost:5000/booking/${bookingId}/cancel`, {}, {
+            const response = await axios.put(`${SERVER_URL}/booking/${bookingId}/cancel`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (response.status === 200) {
@@ -92,7 +92,7 @@ function UserBookings() {
     const handleRequestRefund = async (bookingId) => {
         const token = localStorage.getItem('token');
         try {
-            const response = await axios.put(`http://localhost:5000/booking/${bookingId}/refund`, {}, {
+            const response = await axios.put(`${SERVER_URL}/booking/${bookingId}/refund`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (response.status === 200) {
@@ -128,7 +128,7 @@ function UserBookings() {
                             <CardMedia
                                 component="img"
                                 height="300"
-                                image={booking.eventDetails?.posterUrl ? `http://localhost:5000/uploads/${booking.eventDetails.posterUrl}` : 'https://via.placeholder.com/300'}
+                                image={booking.eventDetails?.posterUrl ? `${SERVER_URL}/uploads/${booking.eventDetails.posterUrl}` : 'https://via.placeholder.com/300'}
                                 alt={booking.eventDetails?.title || "Event Image"}
                                 sx={{ filter: 'brightness(50%)' }} 
                             />

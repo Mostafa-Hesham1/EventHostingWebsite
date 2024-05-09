@@ -1,8 +1,8 @@
 import axios from 'axios';
-
+import { SERVER_URL } from '../contants';
 export const getAllevents = async () => {
     try {
-        const res = await axios.get("http://localhost:5000/event");
+        const res = await axios.get(`${SERVER_URL}/event`);
         if (res.status === 200) {
             return { success: true, events: res.data.events || [] }; // Adjust according to actual response structure
         } else {
@@ -17,7 +17,7 @@ export const getAllevents = async () => {
 
 export const signUpUser = async (userData) => {
     try {
-        const response = await axios.post("http://localhost:5000/users/signup", userData);
+        const response = await axios.post(`${SERVER_URL}/users/signup`, userData);
         if (response.status === 201 && response.data.user) {
             return { success: true, user: response.data.user };
         } else {
@@ -35,7 +35,7 @@ export const signUpUser = async (userData) => {
 
 export const signInUser = async (credentials) => {
     try {
-        const response = await axios.post("http://localhost:5000/users/login", credentials);
+        const response = await axios.post(`${SERVER_URL}/users/login`, credentials);
         console.log("Login Response Data:", response.data);
 
         if (response.status === 200) {
@@ -59,7 +59,7 @@ export const signInUser = async (credentials) => {
 
 export const signInAdmin = async (credentials) => {
     try {
-        const response = await axios.post("http://localhost:5000/admin/login", credentials);
+        const response = await axios.post(`${SERVER_URL}/admin/login`, credentials);
         if (response.status === 200) {
             const { token } = response.data; 
             return { success: true, token }; 
@@ -76,7 +76,7 @@ export const signInAdmin = async (credentials) => {
 };
 export const deleteEvent = async (eventId) => {
     try {
-        const response = await axios.delete(`http://localhost:5000/event/${eventId}`);
+        const response = await axios.delete(`${SERVER_URL}/event/${eventId}`);
         if (response.status === 200) {
             return { success: true, message: "Event deleted successfully." };
         } else {

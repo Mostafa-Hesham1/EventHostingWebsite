@@ -1,13 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import { Card, CardMedia, CardContent, Typography, List, ListItem, ListItemText, Grid, Button } from '@mui/material';
-
+import {SERVER_URL} from "../../contants"
 function ReviewOrder({ formData, eventDetails }) {
   if (!eventDetails) {
     return <Typography variant="h6" color="error">Event details not available.</Typography>;
   }
 
-  const imageUrl = eventDetails.posterUrl ? `http://localhost:5000/uploads/${eventDetails.posterUrl}` : 'https://via.placeholder.com/400';
+  const imageUrl = eventDetails.posterUrl ? `${SERVER_URL}/uploads/${eventDetails.posterUrl}` : 'https://via.placeholder.com/400';
 
 
 
