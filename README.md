@@ -1,9 +1,17 @@
+# Event and Ticketing Platform
+
+Welcome to the Event and Ticketing Platform! Explore our live application [here](https://events-app-fe.vercel.app/homepage).
+
+## Introduction
+
+The Event and Ticketing Platform is designed to facilitate seamless event management and ticketing. Users can sign up, sign in, explore various events hosted by administrators, purchase tickets, and attend events hassle-free.
+
 ## Features
 
 ### User Management
 
 - **Sign Up and Sign In**: Users can create accounts and log in securely.
-- **Buy Ticket**
+- **Buy ticket**
 ### Event Hosting
 
 - **Admin Dashboard**: Administrators can log in to an admin dashboard to manage events.
@@ -12,8 +20,10 @@
 
 ### Ticketing and Checkout
 
-- **Ticket Purchase**: Users can browse events, select tickets, and proceed to checkout.
+- **Browse Events**: Users can view upcoming events and details such as event name, date, location, and ticket availability.
+- **Ticket Purchase**: Users can select events, choose ticket types, and add them to their cart.
 - **Checkout Page**: Secure checkout process with payment integration for ticket purchases.
+- **Payment Integration**: Integration with payment gateways for seamless transactions.
 
 ### Admin Access
 
@@ -21,6 +31,15 @@
   - **Email**: mostafa1@test.com
   - **Password**: 123
   - Once logged in, administrators can manage events, view registrations, and perform administrative tasks.
+
+## Technologies Used
+
+- **Frontend**: React.js, Material-UI, React Router
+- **Backend**: Node.js, Express.js, MongoDB
+- **Authentication**: JSON Web Tokens (JWT), bcrypt.js
+- **Database**: MongoDB Atlas
+- **Deployment**: Vercel 
+- **Other Tools**: Axios
 
 ## Getting Started
 
